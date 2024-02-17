@@ -53,15 +53,15 @@ public class Estructuras_jdcm {
             int intJdcmLongitudContenido = Math.max(Math.max(strJdcmNombre.length(), strJdcmApellido.length()), strJdcmIdentificacion.length());
              
             // Imprime la nomina 
-            System.out.println("╔═" + llenarConCaracter("═", intJdcmEspaciado + intJdcmLongitudContenido) + "═╗");
+            System.out.println("╔══════════════" + llenarConCaracter("═", intJdcmEspaciado + intJdcmLongitudContenido) + "╗");
             System.out.println("║                  Liquidación de Nómina" + llenarEspacios(intJdcmEspaciado - String.valueOf("Liquidación de Nómina").length())+"║");
-            System.out.println("╠═" + llenarConCaracter("═", intJdcmEspaciado + intJdcmLongitudContenido) + "═╣");
+            System.out.println("╠══════════════" + llenarConCaracter("═", intJdcmEspaciado + intJdcmLongitudContenido) + "╣");
             System.out.println("║ Nombre:          " + strJdcmNombre + llenarEspacios(intJdcmEspaciado - strJdcmNombre.length()) + "║");
             System.out.println("║ Apellido:        " + strJdcmApellido + llenarEspacios(intJdcmEspaciado - strJdcmApellido.length()) + "║");
             System.out.println("║ Identificación:  " + strJdcmIdentificacion + llenarEspacios(intJdcmEspaciado - strJdcmIdentificacion.length()) + "║");
             System.out.println("║ Salario Bruto:   $" + dbJdcmlSalario + llenarEspacios(intJdcmEspaciado - String.valueOf(dbJdcmlSalario).length() - 1) + "║");
             System.out.println("║ Salario Neto:    $" + dbJdcmlSalarioNeto + llenarEspacios(intJdcmEspaciado - String.valueOf(dbJdcmlSalarioNeto).length() - 1) + "║");
-            System.out.println("╚═" + llenarConCaracter("═", intJdcmEspaciado + intJdcmLongitudContenido) + "═╝");
+            System.out.println("╚══════════════" + llenarConCaracter("═", intJdcmEspaciado + intJdcmLongitudContenido) + "╝");
 
             // Se pregunta al usuario si desea ingresar otro empleado
             System.out.print("\n¿Desea ingresar otro empleado? (S/N): ");
