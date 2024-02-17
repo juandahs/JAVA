@@ -47,17 +47,21 @@ public class Estructuras_jdcm {
        
             //Se descuenta saludo pensión del salario.
             double dbJdcmlSalarioNeto = dbJdcmlSalario - (dblJdcmDeduccion*2);
-              
-            // Imprime la nomina
-            System.out.println("\n╔══════════════════════════════════════════════════════╗");
-            System.out.println("║                  Liquidación de Nómina" + llenarEspacios(35 - String.valueOf("Liquidación de Nómina").length())+"║");
-            System.out.println("╠══════════════════════════════════════════════════════╣");
-            System.out.println("║ Nombre:          " + strJdcmNombre + llenarEspacios(35 - strJdcmNombre.length()) + "║");
-            System.out.println("║ Apellido:        " + strJdcmApellido + llenarEspacios(35- strJdcmApellido.length()) + "║");
-            System.out.println("║ Identificación:  " + strJdcmIdentificacion + llenarEspacios(35 - strJdcmIdentificacion.length()) + "║");
-            System.out.println("║ Salario Bruto:   $" + dbJdcmlSalario + llenarEspacios(35 - String.valueOf(dbJdcmlSalario).length() - 1) + "║");
-            System.out.println("║ Salario Neto:    $" + dbJdcmlSalarioNeto + llenarEspacios(35 - String.valueOf(dbJdcmlSalarioNeto).length() - 1) + "║");
-            System.out.println("╚══════════════════════════════════════════════════════╝");
+            //variable para calcular el espaciado.
+            int intJdcmEspaciado = 25;
+            // Se calcula la longitud máxima para dibujar el borde derecho
+            int intJdcmLongitudContenido = Math.max(Math.max(strJdcmNombre.length(), strJdcmApellido.length()), strJdcmIdentificacion.length());
+             
+            // Imprime la nomina 
+            System.out.println("╔═" + llenarConCaracter("═", intJdcmEspaciado + intJdcmLongitudContenido) + "═╗");
+            System.out.println("║                  Liquidación de Nómina" + llenarEspacios(intJdcmEspaciado - String.valueOf("Liquidación de Nómina").length())+"║");
+            System.out.println("╠═" + llenarConCaracter("═", intJdcmEspaciado + intJdcmLongitudContenido) + "═╣");
+            System.out.println("║ Nombre:          " + strJdcmNombre + llenarEspacios(intJdcmEspaciado - strJdcmNombre.length()) + "║");
+            System.out.println("║ Apellido:        " + strJdcmApellido + llenarEspacios(intJdcmEspaciado - strJdcmApellido.length()) + "║");
+            System.out.println("║ Identificación:  " + strJdcmIdentificacion + llenarEspacios(intJdcmEspaciado - strJdcmIdentificacion.length()) + "║");
+            System.out.println("║ Salario Bruto:   $" + dbJdcmlSalario + llenarEspacios(intJdcmEspaciado - String.valueOf(dbJdcmlSalario).length() - 1) + "║");
+            System.out.println("║ Salario Neto:    $" + dbJdcmlSalarioNeto + llenarEspacios(intJdcmEspaciado - String.valueOf(dbJdcmlSalarioNeto).length() - 1) + "║");
+            System.out.println("╚═" + llenarConCaracter("═", intJdcmEspaciado + intJdcmLongitudContenido) + "═╝");
 
             // Se pregunta al usuario si desea ingresar otro empleado
             System.out.print("\n¿Desea ingresar otro empleado? (S/N): ");
@@ -69,13 +73,23 @@ public class Estructuras_jdcm {
         scJdcmSc.close();
     }
     
-    private static String llenarEspacios(int cantidad) {
+    private static String llenarEspacios(int cantidad) 
+    {
         StringBuilder espacios = new StringBuilder();
         for (int i = 0; i < cantidad; i++) {
             espacios.append(" ");
         }
         return espacios.toString();
     }
+    
+     private static String llenarConCaracter(String caracter, int cantidad) 
+     {
+        StringBuilder resultado = new StringBuilder();
+        for (int i = 0; i < cantidad; i++) {
+            resultado.append(caracter);
+        }
+        return resultado.toString();
+     }
    
 }
 
